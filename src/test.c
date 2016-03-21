@@ -53,7 +53,7 @@ int main() {
     memcpy(salt, "somesalt", 8);
 
     /* Multiple test cases for various input values */
-    hashtest(2, 16, 1, "password12",
+    hashtest(2, 16, 1, "password",
              "1c7eeef9e0e969b3024722fc864a1ca9f6ca20da73f9bf3f1731881beae2039e",
              "$argon2i$m=65536,t=2,p=1$c29tZXNhbHQAAAAAAAAAAA"
              "$HH7u+eDpabMCRyL8hkocqfbKINpz+b8/FzGIG+riA54");

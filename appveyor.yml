@@ -20,6 +20,5 @@ build:
   verbosity: minimal
 
 test_script:
-  - ps: dir
   - ps: vs2015\build\Argon2OptTestCI.exe
   - ps: vs2015\build\Argon2RefTestCI.exe
