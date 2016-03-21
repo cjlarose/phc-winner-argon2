@@ -18,3 +18,8 @@ build:
   parallel: true
   project: Argon2.sln
   verbosity: minimal
+
+test_script:
+  - ps: dir
+  - ps: Argon2OptTestCI.exe
+  - ps: Argon2RefTestCI.exe
