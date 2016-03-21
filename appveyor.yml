@@ -2,9 +2,9 @@ os: Visual Studio 2015
 
 environment:
   matrix:
-    - platform: Win32
+    - platform: x86
       configuration: Debug
-    - platform: Win32
+    - platform: x86
       configuration: Release
     - platform: x64
       configuration: Debug
@@ -21,5 +21,5 @@ build:
 
 test_script:
   - ps: dir
-  - ps: Argon2OptTestCI.exe
-  - ps: Argon2RefTestCI.exe
+  - ps: vs2015\build\Argon2OptTestCI.exe
+  - ps: vs2015\build\Argon2RefTestCI.exe
