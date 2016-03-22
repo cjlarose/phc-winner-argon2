@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8A1F7F84-34AF-4DB2-9D58-D4823DFE79E9}</ProjectGuid>
-    <RootNamespace>Argon2RefTestCI</RootNamespace>
+    <ProjectGuid>{DBBAAAE6-4560-4D11-8280-30A6650A82EF}</ProjectGuid>
+    <RootNamespace>Argon2OptGenKAT</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -69,31 +69,33 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)vs2015\build\</OutDir>
     <IntDir>$(SolutionDir)vs2015\build\$(ProjectName)\</IntDir>
+    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)vs2015\build\</OutDir>
     <IntDir>$(SolutionDir)vs2015\build\$(ProjectName)\</IntDir>
+    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)vs2015\build\</OutDir>
     <IntDir>$(SolutionDir)vs2015\build\$(ProjectName)\</IntDir>
+    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)vs2015\build\</OutDir>
     <IntDir>$(SolutionDir)vs2015\build\$(ProjectName)\</IntDir>
+    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GENKAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -101,7 +103,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GENKAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,7 +115,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GENKAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -125,22 +131,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GENKAT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\argon2.c" />
-    <ClCompile Include="..\..\src\blake2\blake2b.c" />
-    <ClCompile Include="..\..\src\core.c" />
-    <ClCompile Include="..\..\src\encoding.c" />
-    <ClCompile Include="..\..\src\ref.c" />
-    <ClCompile Include="..\..\src\test.c" />
-    <ClCompile Include="..\..\src\thread.c" />
-  </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\argon2.h" />
     <ClInclude Include="..\..\src\blake2\blake2-impl.h" />
@@ -149,8 +148,18 @@
     <ClInclude Include="..\..\src\blake2\blamka-round-ref.h" />
     <ClInclude Include="..\..\src\core.h" />
     <ClInclude Include="..\..\src\encoding.h" />
-    <ClInclude Include="..\..\src\ref.h" />
+    <ClInclude Include="..\..\src\genkat.h" />
+    <ClInclude Include="..\..\src\opt.h" />
     <ClInclude Include="..\..\src\thread.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\argon2.c" />
+    <ClCompile Include="..\..\src\blake2\blake2b.c" />
+    <ClCompile Include="..\..\src\core.c" />
+    <ClCompile Include="..\..\src\encoding.c" />
+    <ClCompile Include="..\..\src\genkat.c" />
+    <ClCompile Include="..\..\src\opt.c" />
+    <ClCompile Include="..\..\src\thread.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -146,6 +146,8 @@
     <ClInclude Include="..\..\include\argon2.h" />
     <ClInclude Include="..\..\src\blake2\blake2-impl.h" />
     <ClInclude Include="..\..\src\blake2\blake2.h" />
+    <ClInclude Include="..\..\src\blake2\blamka-round-opt.h" />
+    <ClInclude Include="..\..\src\blake2\blamka-round-ref.h" />
     <ClInclude Include="..\..\src\core.h" />
     <ClInclude Include="..\..\src\encoding.h" />
     <ClInclude Include="..\..\src\opt.h" />
